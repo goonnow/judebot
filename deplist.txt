@@ -1,0 +1,8 @@
+FindBin
+Mojolicious
+LWP::Curl
+Moose
+Date::Format
+JSON::PP
+
+
