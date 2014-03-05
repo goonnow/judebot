@@ -2,9 +2,13 @@
 
 use strict;
 use warnings;
+use File::Basename 'dirname';
+use File::Spec;
 
-use lib 'lib';
-#BEGIN { unshift @INC, "$FindBin::Bin/lib" }
+use lib join '/', File::Spec->splitdir(dirname(__FILE__)), 'lib';
+use lib join '/', File::Spec->splitdir(dirname(__FILE__)), '..', 'lib';
+
+warn File::Spec->splitdir(dirname(__FILE__));
 
 # Start command line interface for application
 require Mojolicious::Commands;
