@@ -4,5 +4,7 @@ LWP::Curl
 Moose
 Date::Format
 JSON::PP
+Time::HiRes
+Plack::Handler::Apache2
 
 
