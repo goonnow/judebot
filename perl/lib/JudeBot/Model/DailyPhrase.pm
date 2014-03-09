@@ -11,7 +11,14 @@ use File::Read;
 
 has 'api' => ( is=>'rw',default => 'http://www.ihbristol.com/english-phrases' );
 has 'article_url' => ( is=>'ro', default => 'http://www.ihbristol.com/english-phrases/example/' );
-has 'datapath' => ( is=>'rw', default => '/var/share/phrase-of-today.json' );
+has 'datapath' => ( is=>'rw', default => sub {
+    my $filename = 'phrase-of-today.json';
+
+    if( $ENV{JudeBotShare} ) {
+        return "$ENV{JudeBotShare}/$filename";
+    }
+    return "/var/share/$filename";
+});
 
 
 sub get_data {
