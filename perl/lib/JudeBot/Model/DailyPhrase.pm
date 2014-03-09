@@ -7,10 +7,11 @@ use Moose;
 use Date::Format;
 use JSON::PP;
 use FindBin;
+use File::Read;
 
 has 'api' => ( is=>'rw',default => 'http://www.ihbristol.com/english-phrases' );
 has 'article_url' => ( is=>'ro', default => 'http://www.ihbristol.com/english-phrases/example/' );
-has 'datapath' => ( is=>'rw', default => 'public/english/phrase-of-today.json' );
+has 'datapath' => ( is=>'rw', default => '/var/share/phrase-of-today.json' );
 
 
 sub get_data {
@@ -18,11 +19,17 @@ sub get_data {
     my $data = $self->_parse();
     my $encoded_json = encode_json $data;
 
-    open (DATAFILE, '> '.$self->datapath);
+    open (DATAFILE, '>'.$self->datapath) or die "Can't open data";
     print DATAFILE $encoded_json;
     close(DATAFILE);
     return $data;
 }
+
+sub data {
+    my $self = shift;
+    return read_file($self->datapath);
+}
+
 sub _parse {
     my $self = shift;
 

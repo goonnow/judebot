@@ -1,5 +1,6 @@
 package JudeBot;
 use Mojo::Base 'Mojolicious';
+use JudeBot::Model::DailyPhrase;
 
 # This method will run once at server start
 sub startup {
@@ -10,6 +11,24 @@ sub startup {
 
   # Normal route to controller
   $r->get('/')->to('example#welcome');
+
+
+  $self->setup_routes();
+  $self->make_attributes();
+}
+
+sub make_attributes {
+    my ($self, $cfg) = @_;
+    $self->attr( eng_model => sub { JudeBot::Model::DailyPhrase->new(); } );
+}
+
+sub setup_routes {
+    my ($self) = @_;
+    my $routes = $self->routes;
+
+    #$routes->base_classes(['JudeBot::Controller']);
+
+    $routes->route('/english/phrase-of-today')->to('controller-english#potd');
 }
 
 1;

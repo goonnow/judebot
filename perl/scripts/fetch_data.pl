@@ -1,4 +1,4 @@
-use lib 'lib';
+use lib "$ENV{JudeBotPath}/perl/lib";
 use JudeBot::Model::DailyPhrase;
 use Date::Format;
 
