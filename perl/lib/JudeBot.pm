@@ -28,7 +28,7 @@ sub setup_routes {
 
     #$routes->base_classes(['JudeBot::Controller']);
 
-    $routes->route('/english/phrase-of-today')->to('controller-english#potd');
+    $routes->get('/english/phrase-of-today')->to('controller-english#potd');
 }
 
 1;
