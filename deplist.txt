@@ -6,6 +6,6 @@ Date::Format
 JSON::PP
 Time::HiRes
 Plack::Handler::Apache2
-FileBin
+FindBin
 File::Read
 
