@@ -1,2 +1,0 @@
- #!/bin/bash
- date >> ${OPENSHIFT_PERL_LOG_DIR}/ticktock.log
