@@ -1,3 +1,7 @@
-The OpenShift `perl` cartridge documentation can be found at:
+# Judebot
 
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-perl/README.md
+
+### Release
+```
+git push prod master
+```
