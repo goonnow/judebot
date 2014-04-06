@@ -1,6 +1,5 @@
 use Test::More;
 use Time::Mock;
-use lib 'lib';
 use JudeBot::Model::DailyPhrase;
 use FindBin;
 use File::Temp qw/ tempfile /;

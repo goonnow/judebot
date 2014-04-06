@@ -26,9 +26,8 @@ sub get_data {
     my $data = $self->_parse();
     my $encoded_json = encode_json $data;
 
-    open (DATAFILE, '>'.$self->datapath) or die "Can't open data";
-    print DATAFILE $encoded_json;
-    close(DATAFILE);
+    $self->_update_json($encoded_json);
+
     return $data;
 }
 
@@ -55,6 +54,14 @@ sub _parse {
     $obj->{url} = $self->article_url . time2str('%Y-%m-%d', time);
 
     return $obj;
+}
+
+sub _update_json {
+    my $self = shift;
+    my $data = shift;
+    open (DATAFILE, '>'.$self->datapath) or die "Can't open data";
+    print DATAFILE $data;
+    close(DATAFILE);
 }
 
 1;
