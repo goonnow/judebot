@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="https://www.blognone.com"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+<title>Judebot</title>
+<link>http://judebot-craftcode.rhcloud.com/</link>
+<description>Judebot is a bot who work for someone in Thailand.</description>
+<language>en</language>
+
+<item>
+    <title>Suit yourself</title>
+    <link>http://www.ihbristol.com/english-phrases/example/2014-02-02</link>
+    <description>We use this expression to reply to someone who has made a decision we don't agree with or approve of.</description>
+    <pubDate>Sun Feb  2 00:59:00 2014</pubDate>
+</item>
+
+</channel>
+</rss>
