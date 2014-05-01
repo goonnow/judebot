@@ -1,24 +1,10 @@
-% my ( $items ) = @_;
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xml:base="https://www.blognone.com"  xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
-<title>Judebot2</title>
+<title>Judebot xx</title>
 <link>http://judebot-craftcode.rhcloud.com/</link>
 <description>Judebot is a bot who work for someone in Thailand.</description>
 <language>en</language>
-
-% use Data::Dumper;
-% warn dump($items);
-% foreach $item ( @{ $items } ) {
-<item>
-    <title><%= $item->{title} %></title>
-    <link></link>
-    <description></description>
-    <pubDate></pubDate>
-    <dc:creator></dc:creator>
-</item>
-% }
-
 </channel>
 </rss>
 
