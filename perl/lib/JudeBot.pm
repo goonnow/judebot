@@ -25,10 +25,6 @@ sub make_attributes {
 sub setup_routes {
     my ($self) = @_;
     my $routes = $self->routes;
-
-    #$routes->base_classes(['JudeBot::Controller']);
-
-    $routes->get('/english/phrase-of-today')->to('controller-english#potd');
 }
 
 1;
