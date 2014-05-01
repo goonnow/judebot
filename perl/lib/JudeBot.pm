@@ -12,6 +12,7 @@ sub startup {
   # Normal route to controller
   $r->get('/')->to('controller-english#potd');
 
+  push @{$self->static->paths}, "$ENV{JudeBotShare}" if ( $ENV{JudeBotShare} );
 
   $self->setup_routes();
   $self->make_attributes();
@@ -25,6 +26,7 @@ sub make_attributes {
 sub setup_routes {
     my ($self) = @_;
     my $routes = $self->routes;
+
 }
 
 1;

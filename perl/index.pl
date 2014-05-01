@@ -12,5 +12,3 @@ use lib join '/', File::Spec->splitdir(dirname(__FILE__)), '..', 'lib';
 require Mojolicious::Commands;
 
 my $app = Mojolicious::Commands->start_app('JudeBot');
-
-push @{$app->static->paths}, "$ENV{JudeBotShare}" if ( $ENV{JudeBotShare} );
