@@ -1,5 +1,11 @@
 # Judebot
 
+## Development
+Start server
+
+```
+morbo perl/index.pl
+```
 
 ### Release
 ```
