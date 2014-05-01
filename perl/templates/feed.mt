@@ -10,10 +10,9 @@
 % foreach my $item ( @{ $items } ) {
 <item>
     <title><%= $item->{title} %></title>
-    <link></link>
-    <description></description>
-    <pubDate></pubDate>
-    <dc:creator></dc:creator>
+    <link><%= $item->{link} %></link>
+    <description><%= $item->{description} %></description>
+    <pubDate><%= $item->{pubDate} %></pubDate>
 </item>
 % }
 

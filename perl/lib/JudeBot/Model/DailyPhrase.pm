@@ -9,6 +9,7 @@ use JSON::PP;
 use File::Read;
 use Mojo::Template;
 use Find::Lib '../lib';
+use XML::Hash::LX;
 
 has 'api' => ( is=>'rw',default => 'http://www.ihbristol.com/english-phrases' );
 has 'article_url' => ( is=>'ro', default => 'http://www.ihbristol.com/english-phrases/example/' );
@@ -74,6 +75,26 @@ sub _update_json {
     close(DATAFILE);
 }
 
+sub _combine_data {
+    my $MAX_ITEM = 5;
+    my $self = shift;
+    my $old_data = shift;
+    my $new_data = shift;
+
+
+    # Check duplicate title
+    if( !grep { $_->{title} eq $new_data->{title} } @{ $old_data } ){
+        push $old_data, $new_data;
+    }
+
+    my $length = scalar @{ $old_data };
+
+    # Limit items only 5 items
+    splice( @{ $old_data }, 0, $length - $MAX_ITEM );
+
+    return $old_data ;
+}
+
 sub _update_feed {
     my $self = shift;
     my $data = shift;
@@ -83,6 +104,15 @@ sub _update_feed {
     my $output = $mt->render_file($tp_path, $data);
 
     write_file( $self->feedpath, $output );
+}
+
+sub _read_feed {
+    my $self = shift;
+    my $xml = read_file( $self->feedpath );
+
+    my $res = xml2hash( $xml );
+
+    return $res->{rss}->{channel}->{item};
 }
 
 sub write_file {

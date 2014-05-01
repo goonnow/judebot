@@ -8,17 +8,15 @@
 
 <item>
     <title>Dog</title>
-    <link></link>
-    <description></description>
-    <pubDate></pubDate>
-    <dc:creator></dc:creator>
+    <link>http://dog.com</link>
+    <description>beautiful dog</description>
+    <pubDate>202020</pubDate>
 </item>
 <item>
-    <title>Cat</title>
-    <link></link>
-    <description></description>
-    <pubDate></pubDate>
-    <dc:creator></dc:creator>
+    <title>cat</title>
+    <link>http://cat.com</link>
+    <description>beautiful cat</description>
+    <pubDate>202020</pubDate>
 </item>
 
 </channel>
