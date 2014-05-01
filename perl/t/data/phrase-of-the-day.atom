@@ -7,15 +7,15 @@
 <language>en</language>
 
 <item>
-    <title>Dog</title>
-    <link>http://dog.com</link>
-    <description>beautiful dog</description>
-    <pubDate>202020</pubDate>
-</item>
-<item>
     <title>cat</title>
     <link>http://cat.com</link>
     <description>beautiful cat</description>
+    <pubDate>202020</pubDate>
+</item>
+<item>
+    <title>Dog</title>
+    <link>http://dog.com</link>
+    <description>beautiful dog</description>
     <pubDate>202020</pubDate>
 </item>
 

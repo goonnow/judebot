@@ -7,7 +7,7 @@
 <description>Judebot is a bot who work for someone in Thailand.</description>
 <language>en</language>
 
-% foreach my $item ( @{ $items } ) {
+% foreach my $item ( reverse @{ $items } ) {
 <item>
     <title><%= $item->{title} %></title>
     <link><%= $item->{link} %></link>

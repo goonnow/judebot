@@ -61,22 +61,21 @@ subtest '_update_feed' => sub {
 subtest '_read_feed' => sub {
     my $expect = [
         {
-            title => 'Dog',
-            link => 'http://dog.com',
-            description => 'beautiful dog',
-            pubDate => '202020'
-        },
-        {
             title => 'cat',
             link => 'http://cat.com',
             description => 'beautiful cat',
+            pubDate => '202020'
+        },
+        {
+            title => 'Dog',
+            link => 'http://dog.com',
+            description => 'beautiful dog',
             pubDate => '202020'
         },
     ];
     $model->feedpath("$FindBin::Bin/data/phrase-of-the-day.atom");
     my $data = $model->_read_feed();
     is_deeply( $data, $expect );
-    ok(0);
 };
 
 subtest '_combine_data' => sub {
