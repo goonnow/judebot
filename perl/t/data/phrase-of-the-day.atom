@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="https://www.blognone.com"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+<title>Judebot</title>
+<link>http://judebot-craftcode.rhcloud.com/</link>
+<description>Judebot is a bot who work for someone in Thailand.</description>
+<language>en</language>
+
+<item>
+    <title>Dog</title>
+    <link></link>
+    <description></description>
+    <pubDate></pubDate>
+    <dc:creator></dc:creator>
+</item>
+<item>
+    <title>Cat</title>
+    <link></link>
+    <description></description>
+    <pubDate></pubDate>
+    <dc:creator></dc:creator>
+</item>
+
+</channel>
+</rss>

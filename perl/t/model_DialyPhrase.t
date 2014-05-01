@@ -23,11 +23,27 @@ subtest 'parse' => sub {
 subtest 'fetch_data' => sub {
     my( $fh, $filename ) = tempfile();
 
+    # Mock datapath
     $model->datapath($filename);
 
     my $data = $model->get_data();
     my $saved_data = decode_json read_file($filename);
     is_deeply( $data, $saved_data, 'Save data to file' );
+};
+
+subtest '_update_feed' => sub {
+    my( $fh, $filename ) = tempfile();
+
+    # Mock feedpath
+    $model->feedpath($filename);
+
+    my $expect = read_file("$FindBin::Bin/data/phrase-of-the-day.atom");
+
+    my $data = [ { title => 'Dog' }, { title => 'Cat' } ];
+    $model->_update_feed($data);
+
+    is_deeply( read_file($filename), $expect, 'Feed is written' );
+    ok(0);
 };
 done_testing();
 

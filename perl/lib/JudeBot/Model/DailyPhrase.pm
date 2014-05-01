@@ -6,13 +6,23 @@ use LWP::Curl;
 use Moose;
 use Date::Format;
 use JSON::PP;
-use FindBin;
 use File::Read;
+use Mojo::Template;
+use Find::Lib '../lib';
 
 has 'api' => ( is=>'rw',default => 'http://www.ihbristol.com/english-phrases' );
 has 'article_url' => ( is=>'ro', default => 'http://www.ihbristol.com/english-phrases/example/' );
 has 'datapath' => ( is=>'rw', default => sub {
     my $filename = 'phrase-of-today.json';
+
+    if( $ENV{JudeBotShare} ) {
+        return "$ENV{JudeBotShare}/$filename";
+    }
+    return "/var/share/$filename";
+});
+
+has 'feedpath' => ( is=>'rw', default => sub {
+    my $filename = 'phrase-of-today.atom';
 
     if( $ENV{JudeBotShare} ) {
         return "$ENV{JudeBotShare}/$filename";
@@ -60,6 +70,26 @@ sub _update_json {
     my $self = shift;
     my $data = shift;
     open (DATAFILE, '>'.$self->datapath) or die "Can't open data";
+    print DATAFILE $data;
+    close(DATAFILE);
+}
+
+sub _update_feed {
+    my $self = shift;
+    my $data = shift;
+
+    my $mt = Mojo::Template->new;
+    my $tp_path = Find::Lib->catfile("..", "templates", "feed.mt");
+    my $output = $mt->render_file($tp_path, $data);
+
+    write_file( $self->feedpath, $output );
+}
+
+sub write_file {
+    my $path = shift;
+    my $data = shift;
+
+    open (DATAFILE, '>'.$path) or die "Can't open data";
     print DATAFILE $data;
     close(DATAFILE);
 }
