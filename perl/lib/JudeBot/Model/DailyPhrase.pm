@@ -84,7 +84,7 @@ sub _combine_data {
 
     # Check duplicate title
     if( !grep { $_->{title} eq $new_data->{title} } @{ $old_data } ){
-        push @{$old_data, $new_data;
+        push @{$old_data}, $new_data;
     }
 
     my $length = scalar @{ $old_data };
