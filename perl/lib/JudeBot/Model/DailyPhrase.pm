@@ -112,7 +112,13 @@ sub _read_feed {
 
     my $res = xml2hash( $xml );
 
-    return $res->{rss}->{channel}->{item} || [];
+    my $items = $res->{rss}->{channel}->{item};
+    if( ref $items eq 'HASH' ) {
+        $items = [ $items ];
+    }
+
+    return $items;
+
 }
 
 sub write_file {
